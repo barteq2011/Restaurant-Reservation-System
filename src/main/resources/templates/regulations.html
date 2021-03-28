@@ -1,0 +1,90 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Alterier Romero</title>
+    <meta name="description" content="Serwis restauracji Alterier Romero">
+    <meta name="author" content="Bartosz Bartosik">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{styles/basicStyle.css}">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <hr>
+        <h1>
+            Alterier Romero
+        </h1>
+        <hr>
+    </header>
+    <main style="height: 900px;">
+        <nav class="nav nav-pills nav-justified">
+            <a class="nav-item nav-link" th:href="@{/}">Strona główna</a>
+            <a class="nav-item nav-link" th:href="@{/about}">O nas</a>
+            <a class="nav-item nav-link" th:href="@{/reservation/map}">Rezerwacja</a>
+            <a class="nav-item nav-link" th:href="@{/regulations}">Regulamin</a>
+            <a class="nav-item nav-link" th:href="@{/contact}">Kontakt</a>
+        </nav>
+        <article>
+            <h2 class="display-4" style="font-size: 45px;">Regulamin rezerwacji Alterier Romero</h2><br>
+            <ol>
+                <li>
+                    <p>
+                        Rezerwacje miejsc w Atelier Romero mogą być unieważnione bez żadnych konsekwencji i opłat, jeśli
+                        zostaniemy poinformowani o tym przed upływem 48 godzin od ustalonego wcześniej terminu
+                        rezerwacji.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Niewykorzystana rezerwacja ustalona do realizacji w dniach od poniedziałku do czwartku włącznie,
+                         będzie kosztowała 290.00 złotych *od każdej osoby przy zarezerwowanym stoliku,* w opłatach 
+                         na rzecz Atelier Romero<br><br>
+                        Jeśli rezerwacja została zrobiona na weekend (piątek lub sobota) i niewykorzystana, 
+                        obciążymy kartę rezerwującego kwotą 380.00 złotych *od każdej osoby przy zarezerwowanym 
+                        stoliku.*
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Nie przyjmujemy rezerwacji dla osób z dziećmi poniżej 14 roku życia
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Odpowiedni ubiór tzw. dress code/smart casual/jest absolutnie wymagany i przestrzegany
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Jeśli robienie zdjęć uznacie Państwo za konieczność, proszę je robić z wyłączoną lampą błyskową 
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Rozmowy przez telefony komórkowe i głośne używanie innych urządzeń elektronicznych jest 
+                        absolutnie wykluczone w Atelier Romero
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Wszystkie reklamacje nalezy kierowac pod adresem righthand@atelierRomero.pl lub listownie na 
+                        adres Krzysztof Magej Atelier Romero ul. Agrykala 1, 00-460 Warszawa 
+                    </p>
+                </li>
+            </ol>
+            <p style="margin-left:20px; text-align: left;">Właścicielem serwisu jest:<br>
+                romerONE<br>
+                Wojciech Romest Romero<br>
+                ul. Agrykala 1<br>
+                00-460 Warszawa<br>
+                NIP 123-456-78-91</p>
+        </article>
+    </main>
+</div>
+</body>
+
+</html>

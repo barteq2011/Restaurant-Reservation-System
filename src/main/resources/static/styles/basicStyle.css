@@ -17,10 +17,13 @@ header {
     text-align: center;
     align: center;
 }
+h2 {
+    text-align: center;
+}
 main {
     background-color: #FFF8DC;
     width: 80%;
-    height: 50%;
+    height: 100%;
     align: center;
     margin: auto;
     border-radius: 10px;
@@ -32,9 +35,21 @@ nav a:hover {
 }
 article {
     margin-top: 20px;
-    text-align: center;
 }
 p {
     margin-top: 20px;
     font-family: Gill Sans, sans-serif;
+    text-align: center;
+}
+ol {
+    font-style: italic;
+}
+ol li {
+    text-align: justify;
+    width: 90%;
+    font-weight:bold;
+}
+li > * {
+    font-weight:normal;
+    text-align: justify;
 }

@@ -1,5 +1,6 @@
 package com.barteq.restaurantReservationSystem.conntroller;
 
+import com.barteq.restaurantReservationSystem.entity.Order;
 import com.barteq.restaurantReservationSystem.entity.Table;
 import com.barteq.restaurantReservationSystem.entity.TableAvailable;
 import com.barteq.restaurantReservationSystem.service.TableService;
@@ -27,6 +28,7 @@ public class ReservationController {
         Table tableToReserve = tableService.findById(id);
         if(tableToReserve!=null && tableToReserve.getAvailable().equals(TableAvailable.AVAILABLE)) {
             theModel.addAttribute("table", tableToReserve);
+            theModel.addAttribute("order", new Order());
             return "reservation/form";
         }
         theModel.addAttribute("notAvailable", true);

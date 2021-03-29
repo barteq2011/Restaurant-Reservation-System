@@ -1,0 +1,73 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Alterier Romero</title>
+    <meta name="description" content="Serwis restauracji Alterier Romero">
+    <meta name="author" content="Bartosz Bartosik">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{../../styles/basicStyle.css}">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <hr>
+        <h1>
+            Alterier Romero
+        </h1>
+        <hr>
+    </header>
+    <main style="height: 890px;">
+        <nav class="nav nav-pills nav-justified">
+            <a class="nav-item nav-link" th:href="@{/}">Strona główna</a>
+            <a class="nav-item nav-link" th:href="@{/about}">O nas</a>
+            <a class="nav-item nav-link" th:href="@{/reservation/map}">Rezerwacja</a>
+            <a class="nav-item nav-link" th:href="@{/regulations}">Regulamin</a>
+            <a class="nav-item nav-link" th:href="@{/contact}">Kontakt</a>
+        </nav>
+        <h2 class="display-4" style="font-size: 45px;">Rezerwacja stolika</h2><br>
+        <div id="reservationForm">
+            <form action="#" th:action="@{/reservation/reserve}" th:object="${order}">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Imie i nazwisko</label>
+                        <input th:field="*{clientName}" type="text" class="form-control" placeholder="Imię i nazwisko">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input th:field="*{email}" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Adres</label>
+                    <input th:field="*{address}" type="text" class="form-control" id="inputAddress" placeholder="Ul. 'Nazwa ulicy' 'numer domu, mieszkania'">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Miasto</label>
+                        <input th:field="*{city}" type="text" class="form-control" id="inputCity">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Kod pocztowy</label>
+                        <input th:field="*{zipCode}" type="text" class="form-control" id="inputZip">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Ilość osób</label>
+                    <select th:field="*{numberOfPeople}" class="form-control" id="exampleFormControlSelect1">
+                        <th:block th:each="i : ${#numbers.sequence(0, table.capacity-1)}">
+                            <option th:text="${i+1}" th:value="${i+1}"/>
+                        </th:block>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Rezerwuj</button>
+            </form>
+        </div>
+    </main>
+</div>
+</body>
+
+</html>

@@ -14,13 +14,7 @@ public class TableServiceImpl implements TableService {
     TableRepository tableRepository;
     @Override
     public Table findById(int id) {
-        Table testTable = new Table();
-        testTable.setId(0);
-        testTable.setAvailable(TableAvailable.AVAILABLE);
-        testTable.setCapacity(4);
-        testTable.setDescription("Description");
-        tableRepository.save(testTable);
-        Optional<Table> result = tableRepository.findById(testTable.getId());
+        Optional<Table> result = tableRepository.findById(id);
         return result.orElse(null);
     }
 }

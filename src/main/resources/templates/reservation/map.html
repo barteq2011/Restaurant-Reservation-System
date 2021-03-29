@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{../styles/basicStyle.css}">
+    <link rel="stylesheet" th:href="@{../../styles/basicStyle.css}">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
         </h1>
         <hr>
     </header>
-    <main style="height: 860px;">
+    <main style="height: 890px;">
         <nav class="nav nav-pills nav-justified">
             <a class="nav-item nav-link" th:href="@{/}">Strona główna</a>
             <a class="nav-item nav-link" th:href="@{/about}">O nas</a>
@@ -29,11 +29,11 @@
             <a class="nav-item nav-link" th:href="@{/contact}">Kontakt</a>
         </nav>
         <h2 class="display-4" style="font-size: 45px;">Wybierz stolik</h2><br>
+        <p id="notAvailableTable" th:text="${notAvailable} ? 'Stolik jest zajęty' : ''"/>
         <article>
             <div id="reservaionMap">
-                <img th:src="@{../img/map.png}" alt="Mapa rezerwacji" usemap="#reservationMap">
+                <img th:src="@{../../img/map.png}" alt="Mapa rezerwacji" usemap="#reservationMap">
             </div>
-            <p id="notAvailableTable" th:text="${available} ? 'Stolik jest zajęty' : ''"/>
             <map name="reservationMap">
                 <area th:href="@{/reservation/form/1}" coords="167,657,52,523" shape="rect"/>
                 <area th:href="@{/reservation/form/2}" coords="204,455,24,371" shape="rect"/>

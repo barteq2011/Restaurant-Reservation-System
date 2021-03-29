@@ -65,4 +65,6 @@ li > * {
 #notAvailableTable {
     color: red;
     font-size: 20px;
+    margin: 0;
+    padding: 0;
 }

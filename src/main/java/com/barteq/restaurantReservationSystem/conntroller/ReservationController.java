@@ -3,20 +3,20 @@ package com.barteq.restaurantReservationSystem.conntroller;
 import com.barteq.restaurantReservationSystem.entity.Order;
 import com.barteq.restaurantReservationSystem.entity.Table;
 import com.barteq.restaurantReservationSystem.entity.TableAvailable;
+import com.barteq.restaurantReservationSystem.service.OrderService;
 import com.barteq.restaurantReservationSystem.service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/reservation")
 public class ReservationController {
     @Autowired
     private TableService tableService;
+    @Autowired
+    private OrderService orderService;
 
     @GetMapping("/map")
     public String showMapPage() {
@@ -33,5 +33,13 @@ public class ReservationController {
         }
         theModel.addAttribute("notAvailable", true);
         return "reservation/map";
+    }
+    @GetMapping("/reserve")
+    public String reserve(@ModelAttribute("order") Order order,
+                          @ModelAttribute("table") Table table) {
+        table.setAvailable(TableAvailable.NOT_AVAILABLE);
+        tableService.save(table);
+        orderService.save(order);
+        return "reservation/thanks";
     }
 }

@@ -10,7 +10,7 @@ import javax.persistence.*;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Order")
+@Table(name = "Orders")
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PUBLIC)

@@ -5,4 +5,5 @@ import org.springframework.stereotype.Service;
 
 public interface TableService {
     Table findById(int id);
+    void save(Table table);
 }

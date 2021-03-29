@@ -6,6 +6,7 @@ import com.barteq.restaurantReservationSystem.repository.TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -16,5 +17,10 @@ public class TableServiceImpl implements TableService {
     public Table findById(int id) {
         Optional<Table> result = tableRepository.findById(id);
         return result.orElse(null);
+    }
+    @Override
+    @Transactional
+    public void save(Table table) {
+        tableRepository.save(table);
     }
 }

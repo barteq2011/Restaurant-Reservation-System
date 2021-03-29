@@ -68,3 +68,6 @@ li > * {
     margin: 0;
     padding: 0;
 }
+#reservationForm {
+    margin: 20px;
+}

@@ -1,0 +1,57 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Alterier Romero</title>
+    <meta name="description" content="Serwis restauracji Alterier Romero">
+    <meta name="author" content="Bartosz Bartosik">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{styles/basicStyle.css}">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <hr>
+        <h1>
+            Alterier Romero
+        </h1>
+        <hr>
+    </header>
+    <main style="height: 550px;">
+        <nav class="nav nav-pills nav-justified">
+            <a class="nav-item nav-link" th:href="@{/}">Strona główna</a>
+            <a class="nav-item nav-link" th:href="@{/about}">O nas</a>
+            <a class="nav-item nav-link" th:href="@{/reservation/map}">Rezerwacja</a>
+            <a class="nav-item nav-link" th:href="@{/regulations}">Regulamin</a>
+            <a class="nav-item nav-link" th:href="@{/contact}">Kontakt</a>
+        </nav>
+        <article>
+            <h2 class="display-4" style="font-size: 45px;">O nas</h2><br>
+            <p class="justified">
+                Pracownia kulinarna założona w 2011 roku przez Wojciecha Rodesta Romero, w której „Natura spotyka się
+                z nauką”, by na nowo odkrywać i definiować kuchnię polską. Filozofia kuchni oparta jest na stworzonym
+                przez Szefa Romero Kalendarzu Natury , który wyznacza sezonowość z podziałem na 52 tygodnie w roku.
+                Ten rytm bicia serca natury pozwala odszukać niezwykle bogactwo występujące  w naturalnym środowisku
+                polskich  : rzek , jezior , morza , pól , łąk , zagród , lasów i gór . Tak poznana bioróżnorodność
+                pozwala kreować niezwykłe dania , zwane Momentami , które cechuje innowacyjne podejście do gotowania,
+                wykorzystanie zapomnianych produktów i hołd złożony tradycji .
+            </p>
+            <ul title="Lunch">
+                <p>Na lunch proponujemy</p>
+                <li>Buisness Moments / <b>149pln</b></li>
+                <li>Lunch Moments / <b>219pln</b></li>
+            </ul>
+            <ul title="Kolacja">
+                <li>6 moments / <b>310pln</b></li>
+                <li>9 moments / <b>420pln</b></li>
+            </ul>
+            <p class="justified">W piątki i soboty serwowane jest tylko menu 9 moments.</p>
+        </article>
+    </main>
+</div>
+</body>
+
+</html>

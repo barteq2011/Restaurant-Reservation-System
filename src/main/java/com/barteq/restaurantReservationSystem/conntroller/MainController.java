@@ -12,7 +12,15 @@ public class MainController {
         return "main";
     }
     @GetMapping("/regulations")
-    public String showAboutPage() {
+    public String showRegulationsPage() {
         return "regulations";
+    }
+    @GetMapping("/contact")
+    public String showContactPage() {
+        return "contact";
+    }
+    @GetMapping("/about")
+    public String showAboutPage() {
+        return "about";
     }
 }

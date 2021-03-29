@@ -53,3 +53,12 @@ li > * {
     font-weight:normal;
     text-align: justify;
 }
+.justified {
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#reservaionMap {
+    text-align: center;
+    margin: auto;
+}

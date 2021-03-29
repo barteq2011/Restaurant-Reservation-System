@@ -1,0 +1,54 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Alterier Romero</title>
+    <meta name="description" content="Serwis restauracji Alterier Romero">
+    <meta name="author" content="Bartosz Bartosik">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{../styles/basicStyle.css}">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <hr>
+        <h1>
+            Alterier Romero
+        </h1>
+        <hr>
+    </header>
+    <main style="height: 860px;">
+        <nav class="nav nav-pills nav-justified">
+            <a class="nav-item nav-link" th:href="@{/}">Strona główna</a>
+            <a class="nav-item nav-link" th:href="@{/about}">O nas</a>
+            <a class="nav-item nav-link" th:href="@{/reservation/map}">Rezerwacja</a>
+            <a class="nav-item nav-link" th:href="@{/regulations}">Regulamin</a>
+            <a class="nav-item nav-link" th:href="@{/contact}">Kontakt</a>
+        </nav>
+        <h2 class="display-4" style="font-size: 45px;">Wybierz stolik</h2><br>
+        <article>
+            <div id="reservaionMap">
+                <img th:src="@{../img/map.png}" alt="Mapa rezerwacji" usemap="#reservationMap">
+            </div>
+
+            <map name="reservationMap">
+                <area th:href="@{/reservation/form/1}" coords="167,657,52,523" shape="rect"/>
+                <area th:href="@{/reservation/form/2}" coords="204,455,24,371" shape="rect"/>
+                <area th:href="@{/reservation/form/3}" coords="207,290,22,215" shape="rect"/>
+                <area th:href="@{/reservation/form/4}" coords="60,169,172,32" shape="rect"/>
+                <area th:href="@{/reservation/form/5}" coords="275,41,460,118" shape="rect"/>
+                <area th:href="@{/reservation/form/6}" coords="313,146,426,284" shape="rect"/>
+                <area th:href="@{/reservation/form/7}" coords="316,326,427,467" shape="rect"/>
+                <area th:href="@{/reservation/form/8}" coords="316,524,432,658" shape="rect"/>
+                <area th:href="@{/reservation/form/10}" coords="777,282,597,205" shape="rect"/>
+                <area th:href="@{/reservation/form/9}" coords="773,500,660,361" shape="rect"/>
+            </map>
+        </article>
+    </main>
+</div>
+</body>
+
+</html>

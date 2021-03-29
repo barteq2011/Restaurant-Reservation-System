@@ -33,7 +33,7 @@
             <div id="reservaionMap">
                 <img th:src="@{../img/map.png}" alt="Mapa rezerwacji" usemap="#reservationMap">
             </div>
-
+            <p id="notAvailableTable" th:text="${available} ? 'Stolik jest zajęty' : ''"/>
             <map name="reservationMap">
                 <area th:href="@{/reservation/form/1}" coords="167,657,52,523" shape="rect"/>
                 <area th:href="@{/reservation/form/2}" coords="204,455,24,371" shape="rect"/>

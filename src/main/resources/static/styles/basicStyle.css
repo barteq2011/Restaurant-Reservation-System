@@ -62,3 +62,7 @@ li > * {
     text-align: center;
     margin: auto;
 }
+#notAvailableTable {
+    color: red;
+    font-size: 20px;
+}

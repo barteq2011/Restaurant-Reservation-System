@@ -38,4 +38,9 @@ public class Order {
     @Column(name = "number_of_people")
     @NotNull
     private int numberOfPeople;
+    @OneToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+            optional = false)
+    @JoinColumn(name = "table_id")
+    @NotNull
+    private com.barteq.restaurantReservationSystem.entity.Table table;
 }

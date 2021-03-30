@@ -1,0 +1,40 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Alterier Romero</title>
+    <meta name="description" content="Serwis restauracji Alterier Romero">
+    <meta name="author" content="Bartosz Bartosik">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{../../styles/basicStyle.css}">
+</head>
+
+<body>
+<div class="container">
+    <header>
+        <hr>
+        <h1>
+            Alterier Romero
+        </h1>
+        <hr>
+    </header>
+    <main style="height: 300px;">
+        <nav class="nav nav-pills nav-justified">
+            <a class="nav-item nav-link" th:href="@{/}">Strona główna</a>
+            <a class="nav-item nav-link" th:href="@{/about}">O nas</a>
+            <a class="nav-item nav-link" th:href="@{/reservation/map}">Rezerwacja</a>
+            <a class="nav-item nav-link" th:href="@{/regulations}">Regulamin</a>
+            <a class="nav-item nav-link" th:href="@{/contact}">Kontakt</a>
+        </nav>
+        <h2 class="display-4" style="font-size: 45px;">Dziękujemy</h2><br>
+        <article>
+            <p>Twoja rezerwacja została przyjęta.</p>
+            <a th:href="@{/}" type="button" class="btn btn-primary btn-lg btn-block">Powrót do strony głównej</a>
+        </article>
+    </main>
+</div>
+</body>
+
+</html>

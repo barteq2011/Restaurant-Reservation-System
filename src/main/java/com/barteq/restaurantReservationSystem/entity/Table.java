@@ -23,7 +23,7 @@ public class Table {
     @NotNull
     @Column(name = "available")
     private TableAvailable available;
-    @Column(name = "description", length = 50)
+    @Column(name = "description", length = 150)
     private String description;
     @Column(name = "capacity")
     @NotNull

@@ -20,7 +20,7 @@
         </h1>
         <hr>
     </header>
-    <main style="height: 890px;">
+    <main style="height: 670px;">
         <nav class="nav nav-pills nav-justified">
             <a class="nav-item nav-link" th:href="@{/}">Strona główna</a>
             <a class="nav-item nav-link" th:href="@{/about}">O nas</a>
@@ -30,7 +30,7 @@
         </nav>
         <h2 class="display-4" style="font-size: 45px;">Rezerwacja stolika</h2><br>
         <div id="reservationForm">
-            <form action="#" th:action="@{/reservation/reserve}" th:object="${order}">
+            <form action="#" th:object="${order}" th:action="@{/reservation/reserve}">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Imie i nazwisko</label>
@@ -58,12 +58,19 @@
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Ilość osób</label>
                     <select th:field="*{numberOfPeople}" class="form-control" id="exampleFormControlSelect1">
-                        <th:block th:each="i : ${#numbers.sequence(0, table.capacity-1)}">
+                        <th:block th:each="i : ${#numbers.sequence(0, order.table.capacity-1)}">
                             <option th:text="${i+1}" th:value="${i+1}"/>
                         </th:block>
                     </select>
                 </div>
-                <p th:text="${table.description}"/>
+                <div class="form-check">
+                    <input required class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Akceptuję <a th:href="@{/regulations}">regulamin</a>
+                    </label>
+                </div>
+                <input type="hidden" th:field="*{table}">
+                <p th:text="*{table.description}"/>
                 <button type="submit" class="btn btn-primary">Rezerwuj</button>
             </form>
         </div>

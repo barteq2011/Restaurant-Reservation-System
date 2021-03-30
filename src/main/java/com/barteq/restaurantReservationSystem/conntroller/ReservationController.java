@@ -27,18 +27,17 @@ public class ReservationController {
                                       Model theModel) {
         Table tableToReserve = tableService.findById(id);
         if(tableToReserve!=null && tableToReserve.getAvailable().equals(TableAvailable.AVAILABLE)) {
-            theModel.addAttribute("table", tableToReserve);
-            theModel.addAttribute("order", new Order());
+            Order newOrder = new Order();
+            newOrder.setTable(tableToReserve);
+            theModel.addAttribute("order", newOrder);
             return "reservation/form";
         }
         theModel.addAttribute("notAvailable", true);
         return "reservation/map";
     }
     @GetMapping("/reserve")
-    public String reserve(@ModelAttribute("order") Order order,
-                          @ModelAttribute("table") Table table) {
-        table.setAvailable(TableAvailable.NOT_AVAILABLE);
-        tableService.save(table);
+    public String reserve(@ModelAttribute("order") Order order) {
+        order.getTable().setAvailable(TableAvailable.NOT_AVAILABLE);
         orderService.save(order);
         return "reservation/thanks";
     }

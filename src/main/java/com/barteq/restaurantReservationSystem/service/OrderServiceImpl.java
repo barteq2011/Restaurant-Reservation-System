@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -16,5 +17,10 @@ public class OrderServiceImpl implements OrderService {
     @Transactional
     public void save(Order order) {
         orderRepository.save(order);
+    }
+
+    @Override
+    public List<Order> findAll() {
+        return orderRepository.findAll();
     }
 }

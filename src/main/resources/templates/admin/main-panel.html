@@ -1,0 +1,62 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Alterier Romero</title>
+    <meta name="description" content="Serwis restauracji Alterier Romero">
+    <meta name="author" content="Bartosz Bartosik">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/admin}">Panel administracyjny</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" th:href="@{/admin}">Rezerwacje</a>
+                <a class="nav-item nav-link" th:href="@{admin/tables}">Stoliki</a>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1 class="display-4">Aktualne rezerwacje</h1>
+    </header>
+    <main>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Id zamówienia</th>
+                <th scope="col">Klient</th>
+                <th scope="col">Email klienta</th>
+                <th scope="col">Adres</th>
+                <th scope="col">Miasto</th>
+                <th scope="col">Kod pocztowy</th>
+                <th scope="col">Ilość osób</th>
+                <th scope="col">Stolik</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="order: ${orders}">
+                <th scope="row" th:text="${order.id}"/>
+                <td scope="row" th:text="${order.clientName}"/>
+                <td scope="row" th:text="${order.email}"/>
+                <td scope="row" th:text="${order.address}"/>
+                <td scope="row" th:text="${order.city}"/>
+                <td scope="row" th:text="${order.zipCode}"/>
+                <td scope="row" th:text="${order.numberOfPeople}"/>
+                <td scope="row" th:text="${order.table.id}"/>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+</body>
+
+</html>

@@ -8,6 +8,8 @@ import com.barteq.restaurantReservationSystem.service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -36,7 +38,13 @@ public class ReservationController {
         return "reservation/map";
     }
     @GetMapping("/reserve")
-    public String reserve(@ModelAttribute("order") Order order) {
+    public String reserve(@Validated @ModelAttribute("order") Order order,
+                          Model theModel,
+                          BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            theModel.addAttribute("error", true);
+            return "reservation/form";
+        }
         order.getTable().setAvailable(TableAvailable.NOT_AVAILABLE);
         orderService.save(order);
         return "reservation/thanks";

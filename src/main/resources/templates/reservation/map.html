@@ -29,7 +29,7 @@
             <a class="nav-item nav-link" th:href="@{/contact}">Kontakt</a>
         </nav>
         <h2 class="display-4" style="font-size: 45px;">Wybierz stolik</h2><br>
-        <p id="notAvailableTable" th:text="${notAvailable} ? 'Stolik jest zajęty' : ''"/>
+        <p class="error" th:text="${notAvailable} ? 'Stolik jest zajęty' : ''"/>
         <article>
             <div id="reservaionMap">
                 <img th:src="@{../../img/map.png}" alt="Mapa rezerwacji" usemap="#reservationMap">

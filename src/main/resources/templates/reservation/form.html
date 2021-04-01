@@ -31,33 +31,34 @@
         <h2 class="display-4" style="font-size: 45px;">Rezerwacja stolika</h2><br>
         <div id="reservationForm">
             <form action="#" th:object="${order}" th:action="@{/reservation/reserve}">
+                <p class="error" th:text="${error} ? 'Błędna wartość wymaganego pola, upewnij się ze pola zgadzają się ze wskazówkami' : ''"/>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Imie i nazwisko</label>
-                        <input th:field="*{clientName}" type="text" class="form-control" placeholder="Imię i nazwisko">
+                        <input required th:field="*{clientName}" type="text" class="form-control" placeholder="Imię i nazwisko">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <input th:field="*{email}" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        <input required th:field="*{email}" type="email" class="form-control" id="inputEmail4" placeholder="Email">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Adres</label>
-                    <input th:field="*{address}" type="text" class="form-control" id="inputAddress" placeholder="Ul. 'Nazwa ulicy' 'numer domu, mieszkania'">
+                    <input required th:field="*{address}" type="text" class="form-control" id="inputAddress" placeholder="Ul. 'Nazwa ulicy' 'numer domu, mieszkania'">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">Miasto</label>
-                        <input th:field="*{city}" type="text" class="form-control" id="inputCity">
+                        <input required th:field="*{city}" type="text" class="form-control" id="inputCity">
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Kod pocztowy</label>
-                        <input th:field="*{zipCode}" type="text" class="form-control" id="inputZip">
+                        <input required th:field="*{zipCode}" type="text" class="form-control" id="inputZip">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Ilość osób</label>
-                    <select th:field="*{numberOfPeople}" class="form-control" id="exampleFormControlSelect1">
+                    <select required th:field="*{numberOfPeople}" class="form-control" id="exampleFormControlSelect1">
                         <th:block th:each="i : ${#numbers.sequence(0, order.table.capacity-1)}">
                             <option th:text="${i+1}" th:value="${i+1}"/>
                         </th:block>

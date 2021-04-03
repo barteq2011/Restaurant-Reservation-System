@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -20,7 +21,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().
-                antMatchers("/admin/**").hasRole("ADMIN").and().formLogin();
+                antMatchers("/admin/**").hasRole("ADMIN")
+                .and()
+                .formLogin()
+                .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/admin/logout"))
+                .logoutSuccessUrl("/main");
     }
 
     @Override

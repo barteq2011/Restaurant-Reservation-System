@@ -9,8 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/reservation")
@@ -24,11 +25,12 @@ public class ReservationController {
     public String showMapPage() {
         return "reservation/map";
     }
+
     @GetMapping("/form/{tableId}")
     public String showReservationForm(@PathVariable("tableId") int id,
                                       Model theModel) {
         Table tableToReserve = tableService.findById(id);
-        if(tableToReserve!=null && tableToReserve.getAvailable().equals(TableAvailable.AVAILABLE)) {
+        if (tableToReserve != null && tableToReserve.getAvailable().equals(TableAvailable.AVAILABLE)) {
             Order newOrder = new Order();
             newOrder.setTable(tableToReserve);
             theModel.addAttribute("order", newOrder);
@@ -37,11 +39,12 @@ public class ReservationController {
         theModel.addAttribute("notAvailable", true);
         return "reservation/map";
     }
+
     @GetMapping("/reserve")
-    public String reserve(@Validated @ModelAttribute("order") Order order,
-                          Model theModel,
-                          BindingResult bindingResult) {
-        if(bindingResult.hasErrors()) {
+    public String reserve(@ModelAttribute("order") @Valid Order order,
+                          BindingResult bindingResult,
+                          Model theModel) {
+        if (bindingResult.hasErrors()) {
             theModel.addAttribute("error", true);
             return "reservation/form";
         }

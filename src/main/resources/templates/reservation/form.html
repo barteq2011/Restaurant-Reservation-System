@@ -28,32 +28,32 @@
             <a class="nav-item nav-link" th:href="@{/regulations}">Regulamin</a>
             <a class="nav-item nav-link" th:href="@{/contact}">Kontakt</a>
         </nav>
-        <h2 class="display-4" style="font-size: 45px;">Rezerwacja stolika</h2><br>
+        <h2 class="display-4" style="font-size: 45px;">Rezerwacja stolika</h2>
         <div id="reservationForm">
             <form action="#" th:object="${order}" th:action="@{/reservation/reserve}">
-                <p class="error" th:text="${error} ? 'Błędna wartość wymaganego pola, upewnij się ze pola zgadzają się ze wskazówkami' : ''"/>
+                <p class="error" th:text="${error} ? 'Błędna wartość wymaganego pola, upewnij się że pola zgadzają się ze wskazówkami' : ''"/>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Imie i nazwisko</label>
-                        <input required th:field="*{clientName}" type="text" class="form-control" placeholder="Imię i nazwisko">
+                        <input required th:field="*{clientName}" type="text" class="form-control" placeholder="'Imię'  'Nazwisko'">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <input required th:field="*{email}" type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        <input required th:field="*{email}" type="email" class="form-control" id="inputEmail4" placeholder="np. alerier@gmail.com">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Adres</label>
-                    <input required th:field="*{address}" type="text" class="form-control" id="inputAddress" placeholder="Ul. 'Nazwa ulicy' 'numer domu, mieszkania'">
+                    <input required th:field="*{address}" type="text" class="form-control" id="inputAddress" placeholder="'Nazwa ulicy'  'numer domu, mieszkania'">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">Miasto</label>
-                        <input required th:field="*{city}" type="text" class="form-control" id="inputCity">
+                        <input required th:field="*{city}" type="text" class="form-control" id="inputCity" placeholder="Nazwa miasta">
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Kod pocztowy</label>
-                        <input required th:field="*{zipCode}" type="text" class="form-control" id="inputZip">
+                        <input required th:field="*{zipCode}" type="text" class="form-control" id="inputZip" placeholder="np. 42-244">
                     </div>
                 </div>
                 <div class="form-group">

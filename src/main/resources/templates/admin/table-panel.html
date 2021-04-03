@@ -21,7 +21,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" th:href="@{/admin}">Rezerwacje</a>
-                <a class="nav-item nav-link" th:href="@{admin/tables}">Stoliki</a>
+                <a class="nav-item nav-link" th:href="@{/admin/tables}">Stoliki</a>
+                <a class="btn btn-danger" th:href="@{/admin/logout}"
+                   onclick="if(!(confirm('Czy jestes pewien?'))) return false">Wyloguj się</a>
             </div>
         </div>
     </nav>

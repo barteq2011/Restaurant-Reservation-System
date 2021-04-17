@@ -10,20 +10,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
+
     private final UserRespository userRespository;
 
     @Autowired
     public UserDetailsService(UserRespository userRespository) {
         this.userRespository = userRespository;
     }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        username = "{noop}".concat(username);
         User user = userRespository.findByUsername(username);
-        if(user == null) {
-            System.out.println(username);
+        if (user == null)
             throw new UsernameNotFoundException(username);
-        }
         return new UserPrincipal(user);
     }
 }

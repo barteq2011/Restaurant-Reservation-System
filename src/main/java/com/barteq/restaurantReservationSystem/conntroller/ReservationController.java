@@ -3,6 +3,7 @@ package com.barteq.restaurantReservationSystem.conntroller;
 import com.barteq.restaurantReservationSystem.entity.Order;
 import com.barteq.restaurantReservationSystem.entity.Table;
 import com.barteq.restaurantReservationSystem.entity.TableAvailable;
+import com.barteq.restaurantReservationSystem.service.EmailService;
 import com.barteq.restaurantReservationSystem.service.OrderService;
 import com.barteq.restaurantReservationSystem.service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class ReservationController {
     private TableService tableService;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private EmailService emailService;
 
     @GetMapping("/map")
     public String showMapPage() {
@@ -50,6 +53,10 @@ public class ReservationController {
         }
         order.getTable().setAvailable(TableAvailable.NOT_AVAILABLE);
         orderService.save(order);
+        emailService.sendConfirmationMessage(order.getEmail(),
+                order.getClientName(),
+                String.valueOf(order.getNumberOfPeople()),
+                order.getTable().getDescription());
         return "reservation/thanks";
     }
 }

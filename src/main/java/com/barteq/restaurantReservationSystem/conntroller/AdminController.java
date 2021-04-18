@@ -6,6 +6,7 @@ import com.barteq.restaurantReservationSystem.entity.TableAvailable;
 import com.barteq.restaurantReservationSystem.service.OrderService;
 import com.barteq.restaurantReservationSystem.service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,10 +20,14 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+    private final OrderService orderService;
+    private final TableService tableService;
+
     @Autowired
-    OrderService orderService;
-    @Autowired
-    TableService tableService;
+    public AdminController(OrderService orderService, TableService tableService) {
+        this.tableService = tableService;
+        this.orderService = orderService;
+    }
 
     @GetMapping()
     public String showMainPanel(Model theModel) {

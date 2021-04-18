@@ -6,7 +6,10 @@ import java.util.List;
 
 public interface OrderService {
     void save(Order order);
+
     List<Order> findAll();
+
     Order findById(int id);
+
     void deleteById(int id);
 }

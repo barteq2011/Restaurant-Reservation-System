@@ -17,12 +17,16 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("/reservation")
 public class ReservationController {
+    private final TableService tableService;
+    private final OrderService orderService;
+    private final EmailService emailService;
+
     @Autowired
-    private TableService tableService;
-    @Autowired
-    private OrderService orderService;
-    @Autowired
-    private EmailService emailService;
+    public ReservationController(TableService tableService, OrderService orderService, EmailService emailService) {
+        this.tableService = tableService;
+        this.orderService = orderService;
+        this.emailService = emailService;
+    }
 
     @GetMapping("/map")
     public String showMapPage() {

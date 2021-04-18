@@ -11,8 +11,12 @@ import java.util.Optional;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+    private final OrderRepository orderRepository;
+
     @Autowired
-    private OrderRepository orderRepository;
+    public OrderServiceImpl(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
+    }
 
     @Override
     @Transactional

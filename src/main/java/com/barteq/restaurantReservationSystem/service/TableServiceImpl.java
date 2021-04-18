@@ -12,8 +12,12 @@ import java.util.Optional;
 
 @Service
 public class TableServiceImpl implements TableService {
+    private final TableRepository tableRepository;
+
     @Autowired
-    TableRepository tableRepository;
+    public TableServiceImpl(TableRepository tableRepository) {
+        this.tableRepository = tableRepository;
+    }
 
     @Override
     public Table findById(int id) {

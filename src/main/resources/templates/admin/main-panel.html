@@ -62,7 +62,8 @@
                     </a>
                 </td>
                 <td>
-                    <a th:href="@{admin/cancelOrder(orderId=${order.id})}" class="btn btn-danger">
+                    <a th:href="@{admin/cancelOrder(orderId=${order.id})}" class="btn btn-danger"
+                    onclick="if(!(confirm('Jesteś pewien że chcesz usunąć to zamówienie?'))) return false">
                         Anuluj zamówienie
                     </a>
                 </td>

@@ -14,6 +14,7 @@ import java.util.Optional;
 public class TableServiceImpl implements TableService {
     @Autowired
     TableRepository tableRepository;
+
     @Override
     public Table findById(int id) {
         Optional<Table> result = tableRepository.findById(id);

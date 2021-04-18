@@ -1,6 +1,8 @@
 package com.barteq.restaurantReservationSystem.conntroller;
 
 import com.barteq.restaurantReservationSystem.entity.Order;
+import com.barteq.restaurantReservationSystem.entity.Table;
+import com.barteq.restaurantReservationSystem.entity.TableAvailable;
 import com.barteq.restaurantReservationSystem.service.OrderService;
 import com.barteq.restaurantReservationSystem.service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +54,12 @@ public class AdminController {
     }
     @GetMapping("/cancelOrder")
     public String cancelOrder(@RequestParam("orderId") int id) {
-        orderService.deleteById(id);
+        Order order = orderService.findById(id);
+        if(order!=null) {
+            order.getTable().setAvailable(TableAvailable.AVAILABLE);
+            tableService.save(order.getTable());
+            orderService.deleteById(id);
+        }
         return "redirect:/admin";
     }
 }

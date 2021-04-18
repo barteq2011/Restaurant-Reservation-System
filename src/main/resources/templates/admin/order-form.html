@@ -32,25 +32,28 @@
     </header>
     <main>
         <form th:action="@{/admin/modifyOrder}" th:object="${order}">
+            <div th:if="${error}" class="alert alert-danger" role="alert">
+                Nieprawidłowe dane. Zapoznaj się ze wskazówkami w polach.
+            </div>
             <div class="form-group">
                 <label for="nameInput">Imię i nazwisko</label>
-                <input id="nameInput" class="form-control" type="text" placeholder="'Imię' 'Nazwisko'" th:field="*{clientName}">
+                <input required id="nameInput" class="form-control" type="text" placeholder="'Imię'  'Nazwisko'" th:field="*{clientName}">
             </div>
             <div class="form-group">
                 <label for="emailInput">Email</label>
-                <input id="emailInput" class="form-control" type="email" placeholder="Email" th:field="*{email}">
+                <input required id="emailInput" class="form-control" type="email" placeholder="Email" th:field="*{email}">
             </div>
             <div class="form-group">
                 <label for="addressInput">Adres</label>
-                <input id="addressInput" class="form-control" type="text" placeholder="'Ulica' 'numer'" th:field="*{address}">
+                <input required id="addressInput" class="form-control" type="text" placeholder="'Ulica' 'numer'" th:field="*{address}">
             </div>
             <div class="form-group">
                 <label for="cityInput">Miasto</label>
-                <input id="cityInput" class="form-control" type="text" placeholder="Miasto" th:field="*{city}">
+                <input required id="cityInput" class="form-control" type="text" placeholder="Miasto" th:field="*{city}">
             </div>
             <div class="form-group">
                 <label for="zipCodeInput">Kod pocztowy</label>
-                <input id="zipCodeInput" class="form-control" type="text" placeholder="np. 42-244" th:field="*{zipCode}">
+                <input required id="zipCodeInput" class="form-control" type="text" placeholder="np. 42-244" th:field="*{zipCode}">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Ilość osób</label>

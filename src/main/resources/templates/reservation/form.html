@@ -31,7 +31,9 @@
         <h2 class="display-4" style="font-size: 45px;">Rezerwacja stolika</h2>
         <div id="reservationForm">
             <form action="#" th:object="${order}" th:action="@{/reservation/reserve}">
-                <p class="error" th:text="${error} ? 'Błędna wartość wymaganego pola, upewnij się że pola zgadzają się ze wskazówkami' : ''"/>
+                <div th:if="${error}" class="alert alert-danger" role="alert">
+                    Nieprawidłowe dane. Upewnij się, że pola zgadzają się ze wskazówkami w polach.
+                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Imie i nazwisko</label>

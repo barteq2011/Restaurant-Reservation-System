@@ -1,5 +1,6 @@
 package com.barteq.restaurantReservationSystem.entity;
 
+import com.sun.istack.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,10 +19,11 @@ public class User {
     private Long id;
     @Column(nullable = false, unique = true)
     private String username;
+    @NotNull
     private String password;
     private boolean isNonBlocked;
     private boolean isNotExpired;
     private boolean isEnabled;
     private boolean isCredentialsNonExpired;
-    private GrantedAuthority authority;
+    private String authority;
 }

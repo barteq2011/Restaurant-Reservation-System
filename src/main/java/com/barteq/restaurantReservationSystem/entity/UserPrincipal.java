@@ -15,7 +15,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(user.getAuthority());
+        return List.of((GrantedAuthority) user::getAuthority);
     }
 
     @Override

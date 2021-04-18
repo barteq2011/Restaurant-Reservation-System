@@ -42,6 +42,8 @@
                 <th scope="col">Kod pocztowy</th>
                 <th scope="col">Ilość osób</th>
                 <th scope="col">Stolik</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -54,6 +56,16 @@
                 <td scope="row" th:text="${order.zipCode}"/>
                 <td scope="row" th:text="${order.numberOfPeople}"/>
                 <td scope="row" th:text="${order.table.id}"/>
+                <td>
+                    <a th:href="@{admin/orderForm(orderId=${order.id})}" class="btn btn-success">
+                        Edytuj
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{admin/cancelOrder(orderId=${order.id})}" class="btn btn-danger">
+                        Anuluj zamówienie
+                    </a>
+                </td>
             </tr>
             </tbody>
         </table>

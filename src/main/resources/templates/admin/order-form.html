@@ -1,0 +1,71 @@
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+
+    <title>Alterier Romero</title>
+    <meta name="description" content="Serwis restauracji Alterier Romero">
+    <meta name="author" content="Bartosz Bartosik">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/admin}">Panel administracyjny</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" th:href="@{/admin}">Rezerwacje</a>
+                <a class="nav-item nav-link" th:href="@{/admin/tables}">Stoliki</a>
+                <a class="btn btn-danger" th:href="@{/admin/logout}"
+                   onclick="if(!(confirm('Czy jestes pewien?'))) return false">Wyloguj się</a>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <h1 class="display-4">Modyfikacja zamówienia</h1>
+    </header>
+    <main>
+        <form th:action="@{/admin/modifyOrder}" th:object="${order}">
+            <div class="form-group">
+                <label for="nameInput">Imię i nazwisko</label>
+                <input id="nameInput" class="form-control" type="text" placeholder="'Imię' 'Nazwisko'" th:field="*{clientName}">
+            </div>
+            <div class="form-group">
+                <label for="emailInput">Email</label>
+                <input id="emailInput" class="form-control" type="email" placeholder="Email" th:field="*{email}">
+            </div>
+            <div class="form-group">
+                <label for="addressInput">Adres</label>
+                <input id="addressInput" class="form-control" type="text" placeholder="'Ulica' 'numer'" th:field="*{address}">
+            </div>
+            <div class="form-group">
+                <label for="cityInput">Miasto</label>
+                <input id="cityInput" class="form-control" type="text" placeholder="Miasto" th:field="*{city}">
+            </div>
+            <div class="form-group">
+                <label for="zipCodeInput">Kod pocztowy</label>
+                <input id="zipCodeInput" class="form-control" type="text" placeholder="np. 42-244" th:field="*{zipCode}">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Ilość osób</label>
+                <select required th:field="*{numberOfPeople}" class="form-control" id="exampleFormControlSelect1">
+                    <th:block th:each="i : ${#numbers.sequence(0, order.table.capacity-1)}">
+                        <option th:text="${i+1}" th:value="${i+1}"/>
+                    </th:block>
+                </select>
+            </div>
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{table}"/>
+            <button type="submit" class="btn btn-primary">Zapisz</button>
+        </form>
+    </main>
+</div>
+</body>
+
+</html>

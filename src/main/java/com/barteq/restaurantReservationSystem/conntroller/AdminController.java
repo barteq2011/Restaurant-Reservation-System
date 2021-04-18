@@ -1,12 +1,18 @@
 package com.barteq.restaurantReservationSystem.conntroller;
 
+import com.barteq.restaurantReservationSystem.entity.Order;
 import com.barteq.restaurantReservationSystem.service.OrderService;
 import com.barteq.restaurantReservationSystem.service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/admin")
@@ -25,5 +31,28 @@ public class AdminController {
     public String showTablesPanel(Model theModel) {
         theModel.addAttribute("tables", tableService.findAll());
         return "admin/table-panel";
+    }
+    @GetMapping("/orderForm")
+    public String showOrderForm(@RequestParam("orderId") int id,
+                                Model theModel) {
+        Order order = orderService.findById(id);
+        theModel.addAttribute("order", order);
+        return "admin/order-form";
+    }
+    @GetMapping("/modifyOrder")
+    public String modifyOrder(@ModelAttribute("order") @Valid Order order,
+                              BindingResult bindingResult,
+                              Model theModel) {
+        if(bindingResult.hasErrors()) {
+            theModel.addAttribute("error", true);
+            return "admin/order-form";
+        }
+        orderService.save(order);
+        return "redirect:/admin";
+    }
+    @GetMapping("/cancelOrder")
+    public String cancelOrder(@RequestParam("orderId") int id) {
+        orderService.deleteById(id);
+        return "redirect:/admin";
     }
 }

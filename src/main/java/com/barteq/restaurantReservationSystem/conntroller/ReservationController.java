@@ -60,7 +60,8 @@ public class ReservationController {
         emailService.sendConfirmationMessage(order.getEmail(),
                 order.getClientName(),
                 String.valueOf(order.getNumberOfPeople()),
-                order.getTable().getDescription());
+                order.getTable().getDescription(),
+                order.getId());
         return "reservation/thanks";
     }
 }

@@ -1,12 +1,10 @@
 package com.barteq.restaurantReservationSystem.conntroller;
 
 import com.barteq.restaurantReservationSystem.entity.Order;
-import com.barteq.restaurantReservationSystem.entity.Table;
 import com.barteq.restaurantReservationSystem.entity.TableAvailable;
 import com.barteq.restaurantReservationSystem.service.OrderService;
 import com.barteq.restaurantReservationSystem.service.TableService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

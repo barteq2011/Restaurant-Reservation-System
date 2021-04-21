@@ -1,7 +1,6 @@
 package com.barteq.restaurantReservationSystem.service;
 
 import com.barteq.restaurantReservationSystem.entity.Table;
-import com.barteq.restaurantReservationSystem.entity.TableAvailable;
 import com.barteq.restaurantReservationSystem.repository.TableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

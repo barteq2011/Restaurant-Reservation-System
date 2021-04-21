@@ -15,16 +15,18 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendConfirmationMessage(String to, String clientName, String numberOfPeople, String tableDescription) {
+    public void sendConfirmationMessage(String to, String clientName, String numberOfPeople, String tableDescription, int orderId) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("alterier.romero@gmail.com");
         message.setTo(to);
         message.setSubject("Potwierdzenie rezerwacji w Alterier Romero");
         String messageText = "Dziękujemy za skorzystanie z systemu rezerwacji Alterier Romero\n" +
-                "\nSzczegóły zamówienia: " +
+                "\nSzczegóły zamówienia: \n" +
                 "\nImię i nazwisko: " + clientName +
                 "\nIlość osób: " + numberOfPeople +
-                "\nStolik: " + tableDescription;
+                "\nStolik: " + tableDescription +
+                "\n\nNumer zamówienia: "+orderId;
+        message.setText(messageText);
         javaMailSender.send(message);
     }
 }

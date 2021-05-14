@@ -15,7 +15,10 @@ public class EmailServiceImpl implements EmailService {
     }
 
     @Override
-    public void sendConfirmationMessage(String to, String clientName, String numberOfPeople, String tableDescription, int orderId) {
+    public void sendConfirmationMessage(String to, String clientName,
+                                        String numberOfPeople,
+                                        String tableDescription,
+                                        int orderId) {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("alterier.romero@gmail.com");
         message.setTo(to);
@@ -25,7 +28,7 @@ public class EmailServiceImpl implements EmailService {
                 "\nImię i nazwisko: " + clientName +
                 "\nIlość osób: " + numberOfPeople +
                 "\nStolik: " + tableDescription +
-                "\n\nNumer zamówienia: "+orderId;
+                "\n\nNumer zamówienia: " + orderId;
         message.setText(messageText);
         javaMailSender.send(message);
     }
